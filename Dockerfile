@@ -8,7 +8,6 @@ COPY package.json /usr/src/app/package.json
 COPY package-lock.json /usr/src/app/package-lock.json
 
 # Install application dependencies
-RUN ["npm", "install", "-g", "@angular/cli@7.2.2"]
 RUN ["npm", "install"]
 
 # Install latest stable Google Chrome to run headless tests against
