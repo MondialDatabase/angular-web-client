@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+  web-client-server:
+    image: mondial-web-client
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - "./:/usr/src/app"
+      - "/usr/src/app/node_modules"

@@ -11,7 +11,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Install Docker CE.
 2. Change into the project directory.
-3. Run `sh serve.sh`, which will initialize a Docker environment for the application and run `ng serve` in the Docker container.
+3. Run `docker-compose up`, which will initialize a Docker environment for the application and run `ng serve` in the Docker container.
+4. Run `docker-compose down` to shut down the application server.
 
 Run `sh test.sh` to run the unit tests for the application in a Docker environment.
 Run `sh test-e2e.sh` to run the end to end tests for the application in a Docker environment.
