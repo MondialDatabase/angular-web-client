@@ -1,6 +1,6 @@
 version: "3.5"
 services:
-  web-client-server:
+  web-client-dev-env:
     image: mondial-web-client
     build:
       context: .
