@@ -1,5 +1,6 @@
-# Use official NodeJS 10.x image
-FROM node:10
+# This image is based off of the Official Node.js 10.x image.
+# Google Chrome is added to the image for supporting browser-based testing.
+FROM mondialdatabase/node-chrome:node-10-chrome-71
 
 WORKDIR /usr/src/app
 
@@ -9,11 +10,6 @@ COPY package-lock.json /usr/src/app/package-lock.json
 
 # Install application dependencies
 RUN ["npm", "install"]
-
-# Install latest stable Google Chrome to run headless tests against
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-RUN apt-get update && apt-get install -yq google-chrome-stable
 
 # Expose Angular CLI server port
 EXPOSE 4200
