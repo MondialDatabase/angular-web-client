@@ -1,0 +1,19 @@
+# Node.js 10.x
+language: node_js
+node_js:
+  - "10"
+
+# Caches NPM artifacts
+cache: npm
+
+# Add latest Google Chrome to the environment for use in tests
+addons:
+  chrome: stable
+
+# Define a build matrix; this will allow unit tests and end to end tests to occur in parallel
+env:
+  - TEST_SUITE="test -- --watch=false --browsers=ChromeHeadlessCI"
+  - TEST_SUITE="e2e -- --protractor-config=./e2e/protractor-ci.conf.js"
+
+# Run the appropriate test suite for the build environment
+script: "npm run $TEST_SUITE"
