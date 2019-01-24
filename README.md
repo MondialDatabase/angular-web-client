@@ -11,8 +11,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Install Docker CE.
 2. Change into the project directory.
-3. Run `docker-compose up`, which will initialize a Docker environment for the application and run `ng serve` in the Docker container.
-4. Run `docker-compose down` to shut down the application server.
+3. Run `docker-compose up -V`, which will initialize a Docker environment for the application and run `ng serve` in the Docker container.
+
+The application will be available on `localhost:8080`. Changes to source files will automatically rebuild the application
+and reload any browser tabs/windows that are running the application.
+
+The Docker environment for the application will need to be rebuilt if `node_modules` are changed. To do so, run
+`docker-compose build`, then reinitialize the environment with `docker-compose up -V`.
 
 Run `sh test.sh` to run the unit tests for the application in a Docker environment.
 Run `sh test-e2e.sh` to run the end to end tests for the application in a Docker environment.
