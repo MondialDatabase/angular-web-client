@@ -19,6 +19,11 @@ and reload any browser tabs/windows that are running the application.
 The Docker environment for the application will need to be rebuilt if `node_modules` are changed. To do so, run
 `docker-compose build`, then reinitialize the environment with `docker-compose -p mondial up -V`.
 
+Note that an API connection will be needed for most, if not all, Web Client functionality to work. The Web Client
+expects the API to be available with the hostname `api-server` at port `8080`, with a path of `/api` e.g. `http(s)://api-server:8080/api`.
+
+To shut down the Docker environment, run `docker-compose -p mondial down`.
+
 Run `sh test.sh` to run the unit tests for the application in a Docker environment.
 Run `sh test-e2e.sh` to run the end to end tests for the application in a Docker environment.
 
