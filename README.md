@@ -13,7 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 2. Change into the project directory.
 3. Run `docker-compose -p mondial up -V`, which will initialize a Docker environment for the application and run `ng serve` in the Docker container.
 
-The application will be available on `localhost:8080`. Changes to source files will automatically rebuild the application
+The application will be available on `localhost:4200`. Changes to source files will automatically rebuild the application
 and reload any browser tabs/windows that are running the application.
 
 The Docker environment for the application will need to be rebuilt if `node_modules` are changed. To do so, run
