@@ -5,8 +5,13 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    networks:
+      - mondial
     ports:
       - "4200:4200"
     volumes:
       - "./:/usr/src/app"
       - "/usr/src/app/node_modules"
+networks:
+  mondial:
+    name: mondial

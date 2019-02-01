@@ -11,18 +11,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Install Docker CE.
 2. Change into the project directory.
-3. Run `docker-compose -p mondial up -V`, which will initialize a Docker environment for the application and run `ng serve` in the Docker container.
+3. Run `docker-compose up -V`, which will initialize a Docker environment for the application and run `ng serve` in the Docker container.
 
 The application will be available on `localhost:4200`. Changes to source files will automatically rebuild the application
 and reload any browser tabs/windows that are running the application.
 
 The Docker environment for the application will need to be rebuilt if `node_modules` are changed. To do so, run
-`docker-compose build`, then reinitialize the environment with `docker-compose -p mondial up -V`.
+`docker-compose build`, then reinitialize the environment with `docker-compose up -V`.
 
 Note that an API connection will be needed for most, if not all, Web Client functionality to work. The Web Client
 expects the API to be available with the hostname `api-server` at port `8080`, with a path of `/api` e.g. `http(s)://api-server:8080/api`.
 
-To shut down the Docker environment, run `docker-compose -p mondial down`.
+To shut down the Docker environment, run `docker-compose down`.
 
 Run `sh test.sh` to run the unit tests for the application in a Docker environment.
 Run `sh test-e2e.sh` to run the end to end tests for the application in a Docker environment.
