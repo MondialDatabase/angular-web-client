@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display the application title', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to mondial-web-client!');
+    expect(page.getTitleText()).toEqual('Mondial Database Explorer');
   });
 
   afterEach(async () => {
