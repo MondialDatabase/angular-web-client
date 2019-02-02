@@ -14,7 +14,6 @@ addons:
 env:
   - TEST_SUITE="lint"
   - TEST_SUITE="test -- --watch=false --browsers=ChromeHeadlessCI"
-  - TEST_SUITE="e2e -- --protractor-config=./e2e/protractor-ci.conf.js"
 
 # Run the appropriate test suite for the build environment
 script: "npm run $TEST_SUITE"
