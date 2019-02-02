@@ -15,13 +15,13 @@ describe('SearchResultsComponent', () => {
           get: jasmine.createSpy('ActivatedRoute.snapshot.paramMap.get').and.returnValue('')
         }
       }
-    }
+    };
 
     const countryServiceSpy = {
       searchCountry: jasmine.createSpy('CountryService.searchCountry').and.returnValue({
         subscribe: jasmine.createSpy('CountryService.searchCountry().subscribe').and.stub()
       })
-    }
+    };
 
     TestBed.configureTestingModule({
       declarations: [ SearchResultsComponent ],
