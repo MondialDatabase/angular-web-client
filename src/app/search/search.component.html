@@ -1,0 +1,69 @@
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+  <p>Specify your search below:</p>
+
+  <h2>Location</h2>
+
+  <div>
+    <span style="color: red;">*</span>
+    <label>Country: </label>
+    <select formControlName="country" required>
+      <option value="">-- Select Country --</option>
+      <option *ngFor="let country of countryList | async" [ngValue]="country.code">{{ country.name }}</option>
+    </select>
+  </div>
+
+  <h2>Data to Display</h2>
+  <input type="button" value="Select All" (click)="selectAll()">
+
+  <h3>Population</h3>
+
+  <span><input type="checkbox" formControlName="population"> Population </span>
+  <span><input type="checkbox" formControlName="area"> Area </span>
+  <span><input type="checkbox" formControlName="infantMortality"> Infant Mortality </span>
+  <span><input type="checkbox" formControlName="populationGrowthRate"> Population Growth Rate </span>
+
+  <h3>Governance</h3>
+
+  <span><input type="checkbox" formControlName="capital"> Capital </span>
+  <span><input type="checkbox" formControlName="government"> Government </span>
+  <span><input type="checkbox" formControlName="independenceData"> Independence Data </span>
+  <span><input type="checkbox" formControlName="totalLengthOfBorder"> Total Length of Border </span>
+
+  <h3>Economics</h3>
+
+  <span><input type="checkbox" formControlName="gdpInMillionsUsd"> GDP (in millions USD)</span>
+  <div>
+    <span><input type="checkbox" formControlName="agricultureAsPercentOfGdp"> Agriculture as Percent of GDP</span>
+    <span><input type="checkbox" formControlName="serviceAsPercentOfGdp"> Service as Percent of GDP </span>
+    <span><input type="checkbox" formControlName="industryAsPercentOfGdp"> Industry as Percent of GDP </span>
+  </div>
+  <div>
+    <span><input type="checkbox" formControlName="inflationRatePerAnnum"> Inflation Rate (per annum) </span>
+  </div>
+
+  <h3>Culture</h3>
+
+  <span><input type="checkbox" formControlName="languageData"> List of Spoken Languages (as percentage of population) </span>
+  <span><input type="checkbox" formControlName="religionData"> List of Religions Observed (as percentage of population) </span>
+  <span><input type="checkbox" formControlName="ethnicityData"> List of Ethnic Groups (as percentage of population) </span>
+
+  <h3>Geography</h3>
+
+  <span><input type="checkbox" formControlName="continentData"> List of Continents to which the Country belongs </span>
+  <span><input type="checkbox" formControlName="borderingCountryData"> List of Bordering Countries and the Length of each Border </span>
+  <span><input type="checkbox" formControlName="cityData"> List of Cities within the Country </span>
+
+  <div>
+    <span><input type="checkbox" formControlName="mountainData"> List of Mountains within the Country </span>
+    <span><input type="checkbox" formControlName="desertData"> List of Deserts within the Country </span>
+    <span><input type="checkbox" formControlName="islandData"> List of Islands within the Country </span>
+  </div>
+
+  <div>
+    <span><input type="checkbox" formControlName="seaData"> List of Seas within the Country </span>
+    <span><input type="checkbox" formControlName="riverData"> List of Rivers within the Country </span>
+    <span><input type="checkbox" formControlName="lakeData"> List of Lakes within the Country </span>
+  </div>
+
+  <input type="submit" value="Submit" [disabled]="!searchForm.valid">
+</form>

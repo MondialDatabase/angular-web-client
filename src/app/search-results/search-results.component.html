@@ -1,0 +1,170 @@
+<div *ngIf="countryDataQueryResults" style="text-align: left;">
+  <h2>Data for "{{ countryDataQueryResults.country }}"</h2>
+  <div style="display: flex; flex-flow: row wrap;">
+
+    <div style="flex: 1 auto;" *ngIf="hasPopulationData(countryDataQueryResults) || hasGovernanceData(countryDataQueryResults) || hasEconomicData(countryDataQueryResults)">
+      <div *ngIf="hasPopulationData(countryDataQueryResults)">
+        <h3>Population</h3>
+        <div *ngIf="countryDataQueryResults.population">
+          <span>Population: {{ countryDataQueryResults.population }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.area">
+          <span>Area: {{ countryDataQueryResults.area }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.infantMortality">
+          <span>Infant Mortality: {{ countryDataQueryResults.infantMortality }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.populationGrowthRate">
+          <span>Population Growth Rate: {{ countryDataQueryResults.populationGrowthRate }}</span>
+        </div>
+      </div>
+
+      <div *ngIf="hasGovernanceData(countryDataQueryResults)">
+        <h3>Governance</h3>
+        <div *ngIf="countryDataQueryResults.capital">
+          <span>Capital: {{ countryDataQueryResults.capital }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.government">
+          <span>Government: {{ countryDataQueryResults.government }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.independenceData">
+          <span>Independence Data: {{ countryDataQueryResults.independenceData }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.totalLengthOfBorder">
+          <span>Total Length of Border: {{ countryDataQueryResults.totalLengthOfBorder }}</span>
+        </div>
+      </div>
+
+      <div *ngIf="hasEconomicData(countryDataQueryResults)">
+        <h3>Economics</h3>
+        <div *ngIf="countryDataQueryResults.gdpInMillionsUsd">
+          <span>Gross Domestic Product (millions USD): {{ countryDataQueryResults.gdpInMillionsUsd }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.agricultureAsPercentOfGdp">
+          <span>Agriculture as a Percentage of GDP: {{ countryDataQueryResults.agricultureAsPercentOfGdp }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.serviceAsPercentOfGdp">
+          <span>Service as a Percentage of GDP: {{ countryDataQueryResults.serviceAsPercentOfGdp }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.industryAsPercentOfGdp">
+          <span>Industry as a Percentage of GDP: {{ countryDataQueryResults.industryAsPercentOfGdp }}</span>
+        </div>
+        <div *ngIf="countryDataQueryResults.inflationRatePerAnnum">
+          <span>Inflation Rate (per annum): {{ countryDataQueryResults.inflationRatePerAnnum }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex: 1 auto;" *ngIf="hasCulturalData(countryDataQueryResults)">
+      <h3>Culture</h3>
+      <table *ngIf="countryDataQueryResults.languageData" style="border: 1px solid black;">
+        <thead>
+          <tr>
+            <th scope="col">Language</th>
+            <th scope="col">Percentage of Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let language of countryDataQueryResults.languageData">
+            <th scope="row">{{ language.datumName }}</th>
+            <td>{{ language.datumValue }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table *ngIf="countryDataQueryResults.religionData" style="border: 1px solid black;">
+        <thead>
+          <tr>
+            <th scope="col">Religion</th>
+            <th scope="col">Percentage of Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let religion of countryDataQueryResults.religionData">
+            <th scope="row">{{ religion.datumName }}</th>
+            <td>{{ religion.datumValue }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table *ngIf="countryDataQueryResults.ethnicityData" style="border: 1px solid black;">
+        <thead>
+          <tr>
+            <th scope="col">Ethnicity</th>
+            <td scope="col">Percentage of Population</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ethnicity of countryDataQueryResults.ethnicityData">
+            <th scope="row">{{ ethnicity.datumName }}</th>
+            <td>{{ ethnicity.datumValue }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table *ngIf="countryDataQueryResults.borderingCountryData" style="border: 1px solid black;">
+        <thead>
+        <tr>
+          <th scope="col">Bordering Country</th>
+          <td scope="col">Length of Border</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let borderingCountry of countryDataQueryResults.borderingCountryData">
+          <th scope="row">{{ borderingCountry.datumName }}</th>
+          <td>{{ borderingCountry.datumValue }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="flex: 1 auto;" *ngIf="hasGeographicalData(countryDataQueryResults)">
+      <h3>Geography</h3>
+      <div *ngIf="countryDataQueryResults.continentData">
+        <h4>Continents</h4>
+        <ul style="max-height: 150px; overflow-y: scroll;">
+          <li *ngFor="let continent of countryDataQueryResults.continentData">{{ continent }}</li>
+        </ul>
+      </div>
+      <div *ngIf="countryDataQueryResults.cityData">
+        <h4>Cities</h4>
+        <ul style="max-height: 150px; overflow-y: scroll;">
+          <li *ngFor="let city of countryDataQueryResults.cityData">{{ city }}</li>
+        </ul>
+      </div>
+      <div *ngIf="countryDataQueryResults.mountainData">
+        <h4>Mountains</h4>
+        <ul style="max-height: 150px; overflow-y: scroll;">
+          <li *ngFor="let mountain of countryDataQueryResults.mountainData">{{ mountain }}</li>
+        </ul>
+      </div>
+      <div *ngIf="countryDataQueryResults.seaData">
+        <h4>Seas</h4>
+        <ul style="max-height: 150px; overflow-y: scroll;">
+          <li *ngFor="let sea of countryDataQueryResults.seaData">{{ sea }}</li>
+        </ul>
+      </div>
+      <div *ngIf="countryDataQueryResults.riverData">
+        <h4>Rivers</h4>
+        <ul style="max-height: 150px; overflow-y: scroll;">
+          <li *ngFor="let river of countryDataQueryResults.riverData">{{ river }}</li>
+        </ul>
+      </div>
+      <div *ngIf="countryDataQueryResults.islandData">
+        <h4>Islands</h4>
+        <ul style="max-height: 150px; overflow-y: scroll;">
+          <li *ngFor="let island of countryDataQueryResults.islandData">{{ island }}</li>
+        </ul>
+      </div>
+      <div *ngIf="countryDataQueryResults.lakeData">
+        <h4>Lakes</h4>
+        <ul style="max-height: 150px; overflow-y: scroll;">
+          <li *ngFor="let lake of countryDataQueryResults.lakeData">{{ lake }}</li>
+        </ul>
+      </div>
+      <div *ngIf="countryDataQueryResults.desertData">
+        <h4>Deserts</h4>
+        <ul style="max-height: 150px; overflow-y: scroll">
+          <li *ngFor="let desert of countryDataQueryResults.desertData">{{ desert }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
